@@ -81,7 +81,6 @@ const menuList = [
 const Navbar = ({ authenticate, setAuthenticate }) => {
   const navigate = useNavigate();
   const onCheckEnter = (e) => {
-    // console.log(e);
     if (e.key === "Enter") navigate(`?q=${e.target.value}`);
   };
   return (

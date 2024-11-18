@@ -3,16 +3,15 @@ import { useSearchParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from "react-bootstrap";
 import ProductCard from "../components/ProductCard";
-import { productAction } from "../redux/actions/ProductAction";
+import { productAction } from "../redux/actions/productAction";
 import { useDispatch, useSelector } from "react-redux";
 
 const ProductAll = () => {
   const [query, setQuery] = useSearchParams();
   const dispatch = useDispatch();
-  const productList = useSelector((state) => state.productList);
+  const productList = useSelector((state) => state.product.productList);
   const getProducts = async () => {
     const searchQuery = query.get("q") || "";
-    // console.log(searchQuery);
     dispatch(productAction.getProduct(searchQuery));
   };
   useEffect(() => {

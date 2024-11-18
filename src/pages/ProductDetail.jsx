@@ -30,7 +30,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
   const getProductDetail = async () => {
-    const url = `http://localhost:3000/products/${id}`;
+    const url = `https://my-json-server.typicode.com/Divjason/musinsamall/products/${id}`;
     const response = await fetch(url);
     const data = await response.json();
     setProduct(data);
@@ -61,7 +61,6 @@ const ProductDetail = () => {
               <Dropdown.Toggle variant="outline-dark" id="dropdown-basic">
                 사이즈 선택
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
                 {product &&
                   product?.size.length > 0 &&
@@ -72,8 +71,8 @@ const ProductDetail = () => {
                   ))}
               </Dropdown.Menu>
             </Dropdown>
-            <Button variant="warning">상품결제</Button>
-            <Button variant="dark">장바구니</Button>
+            <Button variant="danger">장바구니</Button>
+            <Button variant="dark">상품결제</Button>
           </ProductDesc>
         </Col>
       </Row>
